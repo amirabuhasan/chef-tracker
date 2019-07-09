@@ -1,5 +1,24 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
+<h3>{{chef}} Tracker</h3>
+<!--<p>Is your favorite {{lowercase chef}} cooking right now?</p>-->
+<!--<p>Find out with <strong>{{chef}} Tracker</strong>, the hottest new chef-tracking app on the market.</p>-->
+<!--<p>We know some {{lowercase chef}}s are better than others, so we want to tell you who's cooking at our restaurant right now. Is it your favorite {{chef}}? Then maybe you should visit!</p>-->
+<!--<hr />-->
+<p>{{availableItems.length}} out of {{model.length}} chefs currently cooking</p>
+
+{{#each model as |chefObj|}}
+  {{#if chefObj.isAvailable}}
+    <li class="available">{{chefObj.name}} <button {{action "handleExit" chefObj}}>Exit</button></li>
+  {{else}}
+    <li class="not-available">
+      {{chefObj.name}}
+      <button {{action "handleEnter" chefObj}}>Enter</button>
+      <button {{action 'destroyItem' chefObj}}>Destroy</button>
+    </li>
+  {{/if}}
+{{/each}}
+
+{{input value=newItem}}
+<button {{action 'saveNewItem'}}>Save</button>
+
 
 {{outlet}}

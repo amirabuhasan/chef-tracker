@@ -1,0 +1,7 @@
+.available {
+  text-decoration: underline;
+}
+
+.not-available {
+  color: grey;
+}
