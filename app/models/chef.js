@@ -4,5 +4,6 @@ const { Model, attr } = DS;
 
 export default Model.extend({
   name: attr('string'),
-  isAvailable: attr('boolean')
+  isAvailable: attr('boolean'),
+  numberOfStudents: attr('number', {defaultValue: 0})
 });

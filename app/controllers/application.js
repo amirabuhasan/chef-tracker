@@ -5,6 +5,8 @@ export default Controller.extend({
   chef: 'Chef',
   newItem: null,
   availableItems: computed.filterBy('model', 'isAvailable'),
+  allStudents: computed.mapBy('model', 'numberOfStudents'),
+  numberOfStudents: computed.sum('allStudents'),
   // eslint-disable-next-line ember/avoid-leaking-state-in-ember-objects
   actions: {
     handleEnter: (chefObj) => {
@@ -24,6 +26,16 @@ export default Controller.extend({
     },
     destroyItem(chefObj) {
       chefObj.destroyRecord();
+    },
+    addStudents(chefObj) {
+      chefObj.set('numberOfStudents', chefObj.get('numberOfStudents') + 1);
+      chefObj.save();
+    },
+    reduceStudents(chefObj) {
+      if (chefObj.numberOfStudents) {
+        chefObj.set('numberOfStudents', chefObj.get('numberOfStudents') - 1);
+        chefObj.save();
+      }
     }
   }
 });

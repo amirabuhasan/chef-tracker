@@ -4,6 +4,7 @@
 <!--<p>We know some {{lowercase chef}}s are better than others, so we want to tell you who's cooking at our restaurant right now. Is it your favorite {{chef}}? Then maybe you should visit!</p>-->
 <!--<hr />-->
 <p>{{availableItems.length}} out of {{model.length}} chefs currently cooking</p>
+{{numberOfStudents}}
 
 {{#each model as |chefObj|}}
   {{#if chefObj.isAvailable}}
@@ -15,10 +16,20 @@
       <button {{action 'destroyItem' chefObj}}>Destroy</button>
     </li>
   {{/if}}
-{{/each}}
+  <div>
+    <span>Number of students</span>
+    <button {{action 'reduceStudents' chefObj}}>-</button>
+      {{chefObj.numberOfStudents}}
+    <button {{action 'addStudents' chefObj}}>+</button>
+  </div>
 
-{{input value=newItem}}
-<button {{action 'saveNewItem'}}>Save</button>
+{{/each}}
+<hr />
+
+<div>
+  {{input value=newItem}}
+  <button {{action 'saveNewItem'}}>Save</button>
+</div>
 
 
 {{outlet}}
