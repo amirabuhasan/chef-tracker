@@ -1,0 +1,17 @@
+<div>
+  <div class="flex-container align-center">
+    <li class="{{if chefObj.isAvailable '' 'not-available'}}">
+      {{#link-to 'chefs.chef' chefObj.id}}{{chefObj.name}}{{/link-to}}
+    </li>
+    <p {{action 'toggleOpen'}}>{{if isOpen 'v' '>'}}</p>
+  </div>
+  <button {{action 'toggleEnter' chefObj}}>{{if chefObj.isAvailable 'Exit' 'Enter'}}</button>
+  {{#if isOpen}}
+    <div>
+      <span>Number of students</span>
+      <button {{action 'reduceStudents' chefObj}}>-</button>
+      {{chefObj.numberOfStudents}}
+      <button {{action 'addStudents' chefObj}}>+</button>
+    </div>
+  {{/if}}
+</div>

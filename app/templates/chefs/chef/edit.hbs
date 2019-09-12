@@ -1,0 +1,13 @@
+<h3>Edit this page</h3>
+<div>
+  <span>Name: </span>
+  {{input value=model.name}}
+  <span>Did they go to culinary school</span>
+  {{input type="checkbox" name="culinarySchool" checked=model.wentToCulinarySchool}}
+  {{#if model.wentToCulinarySchool}}
+    <p>Name of school:</p>
+    {{input value=model.culinarySchoolName}}
+  {{/if}}
+  <button {{action 'save'}}>Save</button>
+</div>
+{{outlet}}

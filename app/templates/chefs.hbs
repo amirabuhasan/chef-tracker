@@ -9,28 +9,7 @@
     {{numberOfStudents}}
 
     {{#each model as |chefObj|}}
-      {{#if chefObj.isAvailable}}
-
-        <li class="available">
-          {{#link-to 'chefs.chef' chefObj.id}}{{chefObj.name}}{{/link-to}}
-          <button {{action "handleExit" chefObj}}>Exit</button>
-        </li>
-
-
-      {{else}}
-        <li class="not-available">
-          {{chefObj.name}}
-          <button {{action "handleEnter" chefObj}}>Enter</button>
-          <button {{action 'destroyItem' chefObj}}>Destroy</button>
-        </li>
-      {{/if}}
-      <div>
-        <span>Number of students</span>
-        <button {{action 'reduceStudents' chefObj}}>-</button>
-        {{chefObj.numberOfStudents}}
-        <button {{action 'addStudents' chefObj}}>+</button>
-      </div>
-
+      {{chef-card chefObj=chefObj}}
     {{/each}}
     <hr />
 

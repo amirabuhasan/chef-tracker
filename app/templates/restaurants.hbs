@@ -1,0 +1,13 @@
+<div class="flex-container">
+    <div>
+        <h1>Restaurants</h1>
+        <ul>
+            {{#each model as |restaurant|}}
+            {{#link-to 'restaurants.restaurant' restaurant.id}}<li>{{restaurant.name}}</li>{{/link-to}}
+            {{/each}}
+        </ul>
+    </div>
+    <div>
+        {{outlet}}
+    </div>
+</div>

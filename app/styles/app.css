@@ -6,8 +6,16 @@
   color: grey;
 }
 
+.not-available a {
+  color: red !important;
+}
+
 .flex-container {
   display: flex;
+}
+
+.align-center {
+  align-items: center;
 }
 
 .chef-container {

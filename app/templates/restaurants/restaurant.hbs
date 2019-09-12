@@ -1,0 +1,16 @@
+<h1>Show Route</h1>
+
+<p>Name: {{model.name}}</p>
+<p>Chefs working here:</p>
+<ul>
+    {{#each model.chefs as |chef|}}
+    <li>
+        {{chef.name}}
+    </li>
+    {{/each}}
+</ul>
+{{#link-to 'restaurants.restaurant.edit' model.id}}
+<button>Edit</button>
+{{/link-to}}
+
+{{outlet}}

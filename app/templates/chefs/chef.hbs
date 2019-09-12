@@ -1,4 +1,9 @@
 <h3>{{model.name}}</h3>
 <p>{{model.description}}</p>
+<p>{{model.culinarySchoolName}}</p>
+<button {{action 'destroyItem' model}}>Fire</button>
+{{#link-to 'chefs.chef.edit' model.id}}
+  <button>Edit</button>
+{{/link-to}}
 
 {{outlet}}
