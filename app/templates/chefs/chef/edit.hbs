@@ -1,13 +1,18 @@
 <h3>Edit this page</h3>
 <div>
   <span>Name: </span>
-  {{input value=model.name}}
+  {{input value=model.chef.name}}
   <span>Did they go to culinary school</span>
-  {{input type="checkbox" name="culinarySchool" checked=model.wentToCulinarySchool}}
-  {{#if model.wentToCulinarySchool}}
-    <p>Name of school:</p>
-    {{input value=model.culinarySchoolName}}
+  {{input type="checkbox" name="culinarySchool" checked=model.chef.wentToCulinarySchool}}
+  {{#if model.chef.wentToCulinarySchool}}
+  <p>Name of school:</p>
+  {{input value=model.chef.culinarySchoolName}}
   {{/if}}
+  <XSelect @value={{model.restaurant}} @action="selectRestaurant" as |xs|>
+    {{#each model.restaurants as |restaurant|}}
+    <xs.option @value={{restaurant}}>{{restaurant.name}}</xs.option>
+    {{/each}}
+  </XSelect>
   <button {{action 'save'}}>Save</button>
 </div>
 {{outlet}}
