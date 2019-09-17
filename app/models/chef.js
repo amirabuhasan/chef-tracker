@@ -8,5 +8,7 @@ export default Model.extend({
   description: attr("string", { defaultValue: "no description available" }),
   wentToCulinarySchool: attr("boolean", { defaultValue: false }),
   culinarySchoolName: attr("string"),
-  restaurant: belongsTo("restaurant")
+  restaurant: belongsTo("restaurant"),
+  health: attr('number', { defaultValue: 0 }),
+  fame: attr('number', { defaultValue: 0 }),
 });

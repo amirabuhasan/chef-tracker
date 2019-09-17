@@ -1,6 +1,7 @@
-<h1>Show Route</h1>
+<h1>{{model.name}}</h1>
 
 <p>Name: {{model.name}}</p>
+{{#if model.chefs}}
 <p>Chefs working here:</p>
 <ul>
     {{#each model.chefs as |chef|}}
@@ -9,6 +10,22 @@
     </li>
     {{/each}}
 </ul>
+<div>
+  <p>
+    Max health {{model.maxHealth}}
+    </p>
+    <p>
+    Average health {{model.averageHealth}}
+    </p>
+</div>
+<div>
+    <p>Max fame: {{model.maxFame}}</p>
+    <p>Average fame: {{model.averageFame}}</p>
+</div>
+
+{{else}}
+<p>Add some chefs!</p>
+{{/if}}
 {{#link-to 'restaurants.restaurant.edit' model.id}}
 <button>Edit</button>
 {{/link-to}}

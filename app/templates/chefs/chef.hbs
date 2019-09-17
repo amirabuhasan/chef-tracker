@@ -2,6 +2,8 @@
 <p>{{model.description}}</p>
 <p>{{model.culinarySchoolName}}</p>
 <p>{{model.restaurant.name}}</p>
+<p>Health: {{model.health}}</p>
+<p>Fame: {{model.fame}}</p>
 <button {{action 'destroyItem' model}}>Fire</button>
 {{#link-to 'chefs.chef.edit' model.id}}
 <button>Edit</button>

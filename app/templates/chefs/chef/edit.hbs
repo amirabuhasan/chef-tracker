@@ -8,11 +8,11 @@
   <p>Name of school:</p>
   {{input value=model.chef.culinarySchoolName}}
   {{/if}}
-  <XSelect @value={{model.restaurant}} @action="selectRestaurant" as |xs|>
-    {{#each model.restaurants as |restaurant|}}
-    <xs.option @value={{restaurant}}>{{restaurant.name}}</xs.option>
-    {{/each}}
-  </XSelect>
+{{#x-select value=model.food.restaurant.content on-change=(action "selectRestaurant") as |xs|}}
+  {{#each model.restaurants as |restaurant|}}
+      {{#xs.option value=restaurant}}{{restaurant.name}}{{/xs.option}}
+  {{/each}}
+{{/x-select}}
   <button {{action 'save'}}>Save</button>
 </div>
 {{outlet}}
